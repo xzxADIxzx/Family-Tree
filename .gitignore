@@ -1,0 +1,17 @@
+# Unity
+[Bb]uild
+[Ll]ibrary
+[Ll]ogs
+[Oo]bj
+[Tt]emp
+
+# Visual Studio
+.vs
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Saves
+Assets/Saves
+Assets/Saves.meta
