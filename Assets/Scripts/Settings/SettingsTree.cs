@@ -15,7 +15,7 @@ public class SettingsTree : MonoBehaviour
         File.WriteAllText(path, JsonUtility.ToJson(new Container(data.ToArray()), true));
     }
 
-    async void Start()
+    private async void Start()
     {
         await Task.Delay(1); // wait 1 frame
         path = Path.Combine(Application.dataPath + "/Saves", "Tree.json");

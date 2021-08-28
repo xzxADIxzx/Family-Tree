@@ -63,7 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Alpha.cs" />
-    <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\Menu\Edit.cs" />
+    <Compile Include="Assets\Scripts\Menu\Menu.cs" />
+    <Compile Include="Assets\Scripts\Menu\View.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\NodeManager.cs" />
     <Compile Include="Assets\Scripts\ParticleManager.cs" />

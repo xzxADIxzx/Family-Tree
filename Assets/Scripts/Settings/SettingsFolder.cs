@@ -7,7 +7,7 @@ public class SettingsFolder : MonoBehaviour
 {
     static string SavePath;
 
-    void Start()
+    private void Start()
     {
         SavePath = Path.Combine(Application.dataPath, "Saves");
         if (!Directory.Exists(SavePath))

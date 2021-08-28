@@ -6,8 +6,8 @@ using UnityEngine;
 public class NodeManager : MonoBehaviour
 {
     [Header("Nodes")]
-    [SerializeField] private List<Node> nodes;
-    [SerializeField] private GameObject prefab;
+    [SerializeField] public List<Node> nodes;
+    [SerializeField] public GameObject prefab;
     [Header("Data")]
     [SerializeField] public Node.Data recent;
     [SerializeField] public Node.Data defaul;
@@ -43,7 +43,7 @@ public class NodeManager : MonoBehaviour
     /* call by button in context menu*/
     public void RevertNode()
     {
-        if (recent.age == default) return; // if recent is null
+        if (recent.birthday.year == default) return; // if recent is null
         Add(recent, Camera.main.ScreenToWorldPoint(mouseR));
     }
 
@@ -60,7 +60,7 @@ public class NodeManager : MonoBehaviour
         Vector3 pos = old - mouse;
         Camera.main.transform.Translate(pos);
         mouseM = Input.mousePosition;
-        Vars.sin.MEN.HideContext();
+        Vars.sin.MEN.HideAll();
     }
 
     public float GetZoom()
@@ -70,11 +70,11 @@ public class NodeManager : MonoBehaviour
         float size = Camera.main.orthographicSize;
         float zoom = size - wheel * size * 4;
         zoom = Mathf.Clamp(zoom, .8f, 5);
-        Vars.sin.MEN.HideContext();
+        Vars.sin.MEN.HideAll();
         return zoom;
     }
     
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(Settings.drag))
             Vars.sin.PRM.SpawnClick(Camera.main.ScreenToWorldPoint(Input.mousePosition));
@@ -91,5 +91,18 @@ public class NodeManager : MonoBehaviour
         else
             zoom = GetZoom();
         Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoom, 15f * Time.deltaTime);
+    }
+
+    private void Start()
+    {
+        DateTime now = DateTime.Now;
+
+        defaul.birthday.year = now.Year;
+        defaul.birthday.month = now.Month;
+        defaul.birthday.day = now.Day;
+
+        start[0].birthday.year = now.Year;
+        start[0].birthday.month = now.Month;
+        start[0].birthday.day = now.Day;
     }
 }

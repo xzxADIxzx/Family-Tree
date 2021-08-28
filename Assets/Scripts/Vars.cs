@@ -11,11 +11,13 @@ public class Vars : MonoBehaviour
     [SerializeField] public ParticleManager PRM;
     [SerializeField] public SettingsTree TRS;
     [SerializeField] public Menu MEN;
+    [SerializeField] public View VIW;
+    [SerializeField] public Edit EDI;
     [Header("Trash")]
     [SerializeField] public Transform NDT;
     [SerializeField] public Transform PRT;
 
-    void Start()
+    private void Start()
     {
         sin = this;
     }

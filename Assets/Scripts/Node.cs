@@ -22,16 +22,20 @@ public class Node : MonoBehaviour
         Vars.sin.NDM.selected = null;
     }
 
-    public Node SetData(Data data)
+    public static int GetAge(Date date)
     {
-        text.text = data.name + " " + data.surname;
-        transform.position = data.position;
-
-        DateTime birthday = new DateTime(data.birthday.year, data.birthday.month, data.birthday.day);
+        DateTime birthday = new DateTime(date.year, date.month, date.day);
         int age = DateTime.Now.Year - birthday.Year;
         if (birthday > DateTime.Now.AddYears(-age))
             age--;
-        data.age = age;
+        return age;
+    }
+
+    public Node SetData(Data data)
+    {
+        text.text = data.name + " " + data.surname;
+        data.age = GetAge(data.birthday);
+        transform.position = data.position;
 
         this.data = data;
         return this;
@@ -43,6 +47,27 @@ public class Node : MonoBehaviour
         public int year;
         public int month;
         public int day;
+
+        public static Dictionary<int, string> months = new Dictionary<int, string>
+        {
+            { 1, "JAN" },
+            { 2, "FEB" },
+            { 3, "MAR" },
+            { 4, "APR" },
+            { 5, "MAY" },
+            { 6, "JUN" },
+            { 7, "JUL" },
+            { 8, "AUG" },
+            { 9, "SEP" },
+            { 10, "OCT" },
+            { 11, "NOV" },
+            { 12, "DEC" }
+        };
+
+        public string GetMonth()
+        {
+            return months[month];
+        }
     }
 
     [Serializable]
