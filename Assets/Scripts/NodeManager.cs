@@ -37,6 +37,7 @@ public class NodeManager : MonoBehaviour
         recent = node.data; // to revert deleted node
         Destroy(node.gameObject);
         nodes.Remove(node);
+        Vars.sin.PRM.SpawnMaelstrom(node.data.position);
         Vars.sin.TRS.Save(nodes);
     }
 

@@ -4773,6 +4773,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   click: {fileID: 857337970721883455, guid: adeeebdebb5b48c4b85e881d37f55b47, type: 3}
   bubbles: {fileID: 5395891662188456567, guid: ad8d83c66ee43814f91c9310c6dc6e74, type: 3}
+  maelstrom: {fileID: 1817208430513482585, guid: d1fe3b884ff9a6b46ad0ca991c327713,
+    type: 3}
 --- !u!4 &1954011039
 Transform:
   m_ObjectHideFlags: 0

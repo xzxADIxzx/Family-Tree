@@ -197,6 +197,7 @@ public class Menu : MonoBehaviour
     /* call by edit*/
     public void EditNode(Node.Data data)
     {
+        if (selected == null) return;
         selected.SetData(data);
         HideEdit();
         Vars.sin.TRS.Save(Vars.sin.NDM.nodes);
